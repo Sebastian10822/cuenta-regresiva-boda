@@ -5,11 +5,12 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>💍 Cuenta regresiva para la boda</title>
+  <title>💍 El gran día se acerca</title>
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
     rel="stylesheet"
@@ -21,7 +22,7 @@
 
   <meta
     property="og:title"
-    content="💍 Cuenta regresiva para la boda"
+    content="💍 El gran día se acerca"
   >
 
   <meta
@@ -51,20 +52,18 @@
 
   <meta
     name="twitter:title"
-    content="💍 Cuenta regresiva para la boda"
+    content="💍 El gran día se acerca"
   >
 
   <meta
     name="twitter:description"
-    content="La cuenta regresiva para el gran día ❤️"
+    content="La cuenta regresiva para un día muy especial ❤️"
   >
 
   <meta
     name="twitter:image"
     content="https://wedding-countdown-vercel.vercel.app/boda.jpg"
   >
-
-  <!-- ========================================= -->
 
   <style>
     * {
@@ -75,7 +74,9 @@
 
     body {
       min-height: 100vh;
+
       font-family: "Montserrat", sans-serif;
+
       color: white;
 
       background-image:
@@ -122,8 +123,11 @@
 
     .small-title {
       font-size: 14px;
+
       font-weight: 500;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
 
       margin-bottom: 15px;
@@ -146,6 +150,7 @@
 
     .subtitle {
       font-size: 16px;
+
       font-weight: 300;
 
       margin-bottom: 40px;
@@ -263,16 +268,19 @@
     @keyframes aparecer {
       from {
         opacity: 0;
+
         transform: translateY(25px);
       }
 
       to {
         opacity: 1;
+
         transform: translateY(0);
       }
     }
 
     @media (max-width: 700px) {
+
       body {
         padding: 15px;
       }
@@ -298,6 +306,7 @@
 
       .label {
         font-size: 10px;
+
         letter-spacing: 1.5px;
       }
 
@@ -307,12 +316,14 @@
     }
 
     @media (max-width: 380px) {
+
       h1 {
         font-size: 35px;
       }
 
       .small-title {
         font-size: 11px;
+
         letter-spacing: 3px;
       }
 
@@ -332,7 +343,7 @@
     </div>
 
     <h1>
-      Nuestra Boda
+      El gran día se acerca
       <span class="heart">♥</span>
     </h1>
 
@@ -344,32 +355,48 @@
 
       <div class="time-box">
         <span id="days" class="number">0</span>
-        <span class="label">Días</span>
+
+        <span class="label">
+          Días
+        </span>
       </div>
 
       <div class="time-box">
         <span id="hours" class="number">0</span>
-        <span class="label">Horas</span>
+
+        <span class="label">
+          Horas
+        </span>
       </div>
 
       <div class="time-box">
         <span id="minutes" class="number">0</span>
-        <span class="label">Minutos</span>
+
+        <span class="label">
+          Minutos
+        </span>
       </div>
 
       <div class="time-box">
         <span id="seconds" class="number">0</span>
-        <span class="label">Segundos</span>
+
+        <span class="label">
+          Segundos
+        </span>
       </div>
 
     </div>
 
     <div id="message" class="message">
+
       💍 ¡LLEGÓ EL GRAN DÍA! 💍
+
       <br>
+
       <span style="font-size: 0.7em;">
         ¡Que vivan los novios! ❤️
       </span>
+
     </div>
 
     <div class="date">
@@ -383,6 +410,7 @@
   </main>
 
   <script>
+
     /*
       FECHA DE LA BODA
 
@@ -391,68 +419,104 @@
       Hora de Colombia (UTC-5)
 
       El contador utiliza la hora actual del dispositivo
-      y calcula cuánto tiempo falta realmente para la boda.
+      y calcula cuánto tiempo falta realmente para el gran día.
     */
 
     const weddingDate =
       new Date("2026-10-11T16:00:00-05:00").getTime();
 
+
     function updateCountdown() {
 
       // Hora actual real
-      const now = new Date().getTime();
+      const now =
+        new Date().getTime();
+
 
       // Tiempo restante
-      const difference = weddingDate - now;
+      const difference =
+        weddingDate - now;
 
+
+      // Cuando llegue el día
       if (difference <= 0) {
 
-        document.getElementById("countdown").style.display = "none";
+        document.getElementById("countdown").style.display =
+          "none";
 
-        document.getElementById("message").style.display = "block";
+        document.getElementById("message").style.display =
+          "block";
 
         return;
       }
 
-      // Cálculos
-      const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      );
 
-      const hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-      );
+      // Cálculo de días
+      const days =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
 
-      const minutes = Math.floor(
-        (difference % (1000 * 60 * 60)) /
-        (1000 * 60)
-      );
 
-      const seconds = Math.floor(
-        (difference % (1000 * 60)) /
-        1000
-      );
+      // Cálculo de horas
+      const hours =
+        Math.floor(
+          (difference %
+            (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+        );
 
-      // Mostrar resultados
+
+      // Cálculo de minutos
+      const minutes =
+        Math.floor(
+          (difference %
+            (1000 * 60 * 60)) /
+          (1000 * 60)
+        );
+
+
+      // Cálculo de segundos
+      const seconds =
+        Math.floor(
+          (difference %
+            (1000 * 60)) /
+          1000
+        );
+
+
+      // Mostrar días
       document.getElementById("days").textContent =
         String(days).padStart(2, "0");
 
+
+      // Mostrar horas
       document.getElementById("hours").textContent =
         String(hours).padStart(2, "0");
 
+
+      // Mostrar minutos
       document.getElementById("minutes").textContent =
         String(minutes).padStart(2, "0");
 
+
+      // Mostrar segundos
       document.getElementById("seconds").textContent =
         String(seconds).padStart(2, "0");
     }
 
+
     // Actualizar inmediatamente
     updateCountdown();
 
+
     // Actualizar cada segundo
-    setInterval(updateCountdown, 1000);
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
   </script>
 
 </body>
